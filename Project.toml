@@ -2,3 +2,8 @@ name = "kittyforth"
 uuid = "a2dbe125-acd4-4840-b37a-b6cd28dcb5e5"
 authors = ["AlexV <asmodehn@gmail.com>"]
 version = "0.1.0"
+
+[deps]
+Catlab = "134e5e36-593f-5add-ad60-77f754baafbe"
+Ncurses_jll = "68e3532b-a499-55ff-9963-d1c0c0748b3a"
+Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
