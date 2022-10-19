@@ -1,6 +1,20 @@
+"""
+# module kittyforth
+
+- Julia version:
+- Author: alexv
+- Date: 2022-10-17
+
+# Examples
+
+```jldoctest
+julia>
+```
+"""
 module kittyforth
 
-greet() = print("Hello World!")
+# TODO : find a sensible way to organize files...
+include("compat.jl")
 
 function readall()
 
@@ -9,8 +23,10 @@ function readall()
     # TODO second curses compatibility ???
 
     while !eof(stdin)
-        x = read(stdin, Char)  # we want char by char for customiation of terminal navigation
-        println("Found: $x")
+        l = compat.readline()
+#         l = Base.readline()
+#         println("line: $l")
+        flush(stdout)  # because some terminals buffer output
     end
 
 end
