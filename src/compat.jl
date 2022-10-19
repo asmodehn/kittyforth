@@ -17,8 +17,8 @@ module compat
 
 export readchar, readline
 
-function readchar()
-    x = read(stdin, Char)
+function readchar(input_strm = stdin)
+    x = read(input_strm, Char)
     println("char: $x")
     return x
 end
@@ -34,5 +34,20 @@ function readline()  # TODO: compare with base readline method...
 #     flush(stdout)
     return l
 end
+
+
+using Ncurses_jll
+
+
+function cursed()
+    # using lib curses
+    # Note : does NOT work in repl !!!
+    # useful to workaround buffered terminal for interactive tests
+
+    # For library products, you can use the exported variable name in `ccall()` invocations directly
+    num_chars = ccall((:initscr, Ncurses_jll.libncurses), Cint, ())
+
+end
+
 
 end
