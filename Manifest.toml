@@ -2,7 +2,7 @@
 
 julia_version = "1.8.2"
 manifest_format = "2.0"
-project_hash = "8eebf53b34eec60a1a56e092efb811db35b32406"
+project_hash = "4cd57d7cc49e2b48a90c1f1650706dd58c888bca"
 
 [[deps.ArgTools]]
 uuid = "0dad84c5-d112-42e6-8d28-ef12dabb789f"
@@ -259,6 +259,12 @@ git-tree-sha1 = "85f8e6578bf1f9ee0d11e7bb1b1456435479d47c"
 uuid = "bac558e1-5e72-5ebc-8fee-abe8a469f55d"
 version = "1.4.1"
 
+[[deps.Parameters]]
+deps = ["OrderedCollections", "UnPack"]
+git-tree-sha1 = "34c0e9ad262e5f7fc75b10a9952ca7692cfc5fbe"
+uuid = "d96e819e-fc66-5662-9728-84c9c7592b0a"
+version = "0.12.3"
+
 [[deps.Parsers]]
 deps = ["Dates"]
 git-tree-sha1 = "6c01a9b494f6d2a9fc180a08b182fcb06f0958a0"
@@ -382,9 +388,20 @@ version = "1.10.1"
 deps = ["InteractiveUtils", "Logging", "Random", "Serialization"]
 uuid = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
+[[deps.TextUserInterfaces]]
+deps = ["Dates", "FileWatching", "Libdl", "LinearAlgebra", "Ncurses_jll", "Parameters"]
+path = "/home/alexv/.julia/dev/TextUserInterfaces"
+uuid = "2a09ff82-1be9-11e9-2ab7-19964783a84b"
+version = "0.0.1"
+
 [[deps.UUIDs]]
 deps = ["Random", "SHA"]
 uuid = "cf7118a7-6976-5b1a-9a39-7adc72f591a4"
+
+[[deps.UnPack]]
+git-tree-sha1 = "387c1f73762231e86e0c9c5443ce3b4a0a9a0c2b"
+uuid = "3a884ed6-31ef-47d7-9d2a-63182c4928ed"
+version = "1.0.2"
 
 [[deps.Unicode]]
 uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
