@@ -15,7 +15,7 @@ module kittyforth
 
 # TODO : find a sensible way to organize files...
 include("compat.jl")
-
+include("lazypipe.jl")
 
 function getUserInput(T=String,msg="")
   flush(stdout)  # because some terminals buffer output
