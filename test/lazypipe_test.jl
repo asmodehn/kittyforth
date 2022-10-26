@@ -28,4 +28,24 @@ using kittyforth.lazypipe
         # TODO : test via sideeffects
     end
 
+
+    @testset "LazyPipeLR" begin
+        in = () -> "abc"
+        # TODO : sideeffect for test
+        out = (s::String) -> nothing
+
+        pipe = lazypipe.LazyPipeLR(in)
+
+        pipe2 = pipe |> uppercase
+
+        pipe3 = pipe2 |> out
+
+        @test pipe() == "abc"
+        @test pipe() == "abc"
+        @test pipe2() == "ABC"
+        @test pipe2() == "ABC"
+        @test pipe3() == nothing
+
+    end
+
 end

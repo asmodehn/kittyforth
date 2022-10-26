@@ -50,4 +50,23 @@ module lazypipe
     # TODO: Specialise for String -> String
     Base.:|>(f::Function, wp::WritePipeline) = WritePipeline(wp.terminal, [f ; wp.before])
 
+
+    abstract type BiMonad  # or NEList/NEStream ??
+    end
+
+    struct LazyPipeLR <: BiMonad
+        pipeline::Array{Function}
+        LazyPipeLR(f::Function) = new([f])
+        LazyPipeLR(a::Array{Function}) = new(a)
+    end
+
+    (lrp::LazyPipeLR)() =  foldl(|>, lrp.pipeline[begin+1:end]; init=lrp.pipeline[begin]())
+    (lrp::LazyPipeLR)(s::String) = s |> foldl(|>, lrp.pipeline)
+
+    # Redefine pipeline operator for a pipeline
+    # TODO: Specialise for String -> String
+    Base.:|>(lplr::LazyPipeLR, f::Function) = LazyPipeLR( [lplr.pipeline ; f] )
+    Base.:|>(f::Function, lplr::LazyPipeLR) = LazyPipeLR( [f ; lplr.pipeline] )
+
+
 end
